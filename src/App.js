@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import EmailAutocomplete from '../src/components/EmailAutocomplete';
 import * as api from './api';
@@ -8,6 +8,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [options, setOptions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const onSearchChange = useCallback((newSearch) => { setSearchTerm(newSearch); }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -27,9 +28,7 @@ function App() {
           value={emails}
           onChange={setEmails}
           searchValue={searchTerm}
-          onSearchChange={(newSearch) => {
-            setSearchTerm(newSearch);
-          }}
+          onSearchChange={onSearchChange}
           placeholder="Enter recipients..."
         />
       </header>

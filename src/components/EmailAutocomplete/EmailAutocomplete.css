@@ -42,3 +42,30 @@
 .EmailList > li:hover {
     background-color: #EFF5F9;
 }
+
+.EmailAutocomplete-Placeholder {
+    color: #BDBDBD;
+    font-size: 16px;
+    margin: 4px;
+    height: 28px;
+    align-items: center;
+    display: flex;
+}
+
+.EmailInput::-webkit-input-placeholder {
+    color: #BDBDBD;
+    font-size: 16px;
+    opacity: 0;
+}
+
+.EmailInput:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.EmailInput.EmailInputShowPlaceholder {
+    width: 120px !important;
+}
+
+.EmailInputShowPlaceholder::-webkit-input-placeholder {
+    opacity: 1;
+}

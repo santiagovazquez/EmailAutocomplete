@@ -16,6 +16,8 @@ const EditableEmailTag = forwardRef((props, forwardedRef) => {
     onExitEditMode,
     onBlur,
     className,
+    inputClassName,
+    placeholder,
   } = props;
   const newRef = useRef(null);
   const ref = forwardedRef || newRef;
@@ -30,7 +32,8 @@ const EditableEmailTag = forwardRef((props, forwardedRef) => {
       {
         editMode && <SearchInput
           ref={ref}
-          onFocus={onEnterEditMode}
+          placeholder={placeholder}
+          inputClassName={inputClassName}
           onKeyEvent={onExitEditMode}
           onBlur={onBlur}
           value={searchValue}
@@ -66,12 +69,16 @@ EditableEmailTag.propTypes = {
   onEnterEditMode: PropTypes.func,
   onExitEditMode: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
+  inputClassName: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 EditableEmailTag.defaultProps = {
   // don't force the user to pass a fn, pass a dummy function to avoid unnecessary checking
   onEnterEditMode: () => {},
   onDelete: () => {},
+  inputClassName: "",
+  placeholder: "",
 }
 
 export default EditableEmailTag;

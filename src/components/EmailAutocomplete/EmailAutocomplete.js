@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import './EmailAutocomplete.css';
 import EditableEmailTag from "./EditableEmailTag";
 import AutocompleteOptionList from "./AutocompleteOptionList";
+import { classnames } from "../../utils";
 
-const EmailAutocomplete = ({ value, onChange, options, searchValue, onSearchChange }) => {
+const EmailAutocomplete = ({ value, onChange, options, searchValue, onSearchChange, placeholder }) => {
   const ref = useRef(null);
   // editing position is the element which is currently under edition (input is being shown)
   const [ editingPos, setEditingPos ] = useState(0);
   const [ listOpen, setListOpen ] = useState(false);
-
 
   const addEmailOnEditingPosition = (email) => {
     let arrCopy = [...value];
@@ -22,6 +22,9 @@ const EmailAutocomplete = ({ value, onChange, options, searchValue, onSearchChan
       arrCopy[editingPos] = email;
     } else if (email === "" && editingPos < arrCopy.length) {
       arrCopy.splice(editingPos, 1);
+    } else {
+      // any other case, we don't change the array to avoid triggering a re-render
+      arrCopy = value;
     }
 
     // after adding the new email to the array, we clean up & update state vars
@@ -58,6 +61,7 @@ const EmailAutocomplete = ({ value, onChange, options, searchValue, onSearchChan
               }}
               onBlur={() => {
                 addEmailOnEditingPosition(searchValue);
+                setListOpen(false);
               }}
               onExitEditMode={() => {
                 addEmailOnEditingPosition(searchValue);
@@ -67,7 +71,8 @@ const EmailAutocomplete = ({ value, onChange, options, searchValue, onSearchChan
                 ev.stopPropagation();
                 let arrCopy = [...value];
                 arrCopy.splice(idx, 1);
-                onChange(arrCopy)
+                onChange(arrCopy);
+                setEditingPos(arrCopy.length);
               }}
             />)
           )
@@ -77,6 +82,7 @@ const EmailAutocomplete = ({ value, onChange, options, searchValue, onSearchChan
             className="EmailAutocomplete-EmailTagContainer"
             ref={ref}
             value={searchValue}
+            placeholder={placeholder}
             onSearchChange={onSearchChange}
             searchValue={searchValue}
             editMode={true}
@@ -86,7 +92,9 @@ const EmailAutocomplete = ({ value, onChange, options, searchValue, onSearchChan
             }}
             onBlur={() => {
               addEmailOnEditingPosition(searchValue);
+              setListOpen(false);
             }}
+            inputClassName={classnames("EmailInput", editingPos === 0 && "EmailInputShowPlaceholder")}
           />
         }
       </div>
