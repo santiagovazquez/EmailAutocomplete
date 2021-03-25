@@ -54,3 +54,4 @@ function SomeComponent() {
 - Integrate [Storybook](https://storybook.js.org/) so people can play around with the component
 - Highlight search text on dropdown options
 - Better feedback on duplicate entries
+- Improve code to avoid unnecessary renders
