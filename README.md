@@ -1,39 +1,52 @@
-# EmailAutocomplete Component Example
+# EmailAutocomplete Example
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This component emulates a classic input which receives a list of emails:
 
-## Available Scripts
+![alt text](https://github.com/santiagovazquez/EmailAutocomplete/blob/main/component-example.png?raw=true)
 
-In the project directory, you can run:
+### Basics
 
-### `yarn start`
+```
+# runs the example app in dev mode. 
+# available at http://localhost:3000
+yarn start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# builds the app for prod to the `build` folder.
+yarn build
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Usage example
 
-### `yarn test`
+```js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function SomeComponent() {
+  // Initial state of the component
+  const [emails, setEmails] = useState([]);
+  // List of possible options for the dropdown
+  const [options, setOptions] = useState([]);
+  // current state of the search (could be used for filtering the option array)
+  const [searchTerm, setSearchTerm] = useState("");
+  
+  return (
+    <EmailAutocomplete
+      options={options}
+      value={emails}
+      onChange={setEmails}
+      searchValue={searchTerm}
+      onSearchChange={(newSearch) => {
+        setSearchTerm(newSearch);
+      }}
+      placeholder="Enter recipients..."
+    />
+  );
+}
+```
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# EmailAutocomplete
+### Potential Improvements
+ 
+- Release the component as standalone
+- Add meaningful tests
+- Backspace should remove the previous element when current element empty 
+- Ability to navigate with the keyboard thought the options of the dropdown 
+- Rework inner components for more general purpose
+- Integrate [Storybook](https://storybook.js.org/) so people can play around with the component
