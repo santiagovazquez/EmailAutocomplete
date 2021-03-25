@@ -1,0 +1,15 @@
+.AutocompleteOptionList {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #FDFDFD;
+    box-shadow: 0 4px 14px rgba(26, 24, 24, 0.08);
+    border-radius: 4px;
+    min-width: 260px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.AutocompleteOptionListOpen {
+    display: block;
+}

@@ -1,0 +1,34 @@
+.Tag-Container {
+    font-family: 'SFProText', serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 8px;
+}
+
+
+.Tag-Container.TagDefault {
+    background-color:  #EDEDED;
+}
+
+.Tag-Container.TagError {
+    background-color: #F3B7BD;
+}
+
+.Tag-Container.TagText {
+    background-color: transparent;
+}
+
+.Tag-Icon-Container {
+    margin: 0 4px;
+    width: 12px;
+}
+
+.Tag-Icon-Clickable {
+    cursor: pointer;
+}

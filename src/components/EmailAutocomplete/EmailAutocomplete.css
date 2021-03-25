@@ -1,0 +1,44 @@
+.EmailAutocomplete-Container {
+    position: relative;
+    width: 400px;
+}
+
+.EmailAutocomplete-TagsContainer {
+    overflow-x: hidden;
+    background-color: #FDFDFD;
+    min-height: 36px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.EmailAutocomplete-Input {
+    border: none;
+}
+
+.EmailAutocomplete-EmailTagContainer:first-child {
+    margin-left: 0;
+}
+
+.EmailAutocomplete-EmailTagContainer:last-child {
+    margin-right: 0;
+}
+
+.EmailList {
+    padding-left: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.EmailList > li {
+    list-style: none;
+    font-size: 14px;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+.EmailList > li:hover {
+    background-color: #EFF5F9;
+}

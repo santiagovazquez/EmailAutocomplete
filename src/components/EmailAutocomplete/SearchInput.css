@@ -1,0 +1,17 @@
+.SearchInputContainer {
+    max-width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    height: 100%;
+}
+
+.SearchInput {
+    font-size: 14px;
+    outline: 0;
+    min-width: 30px;
+    width: 0;
+    box-sizing: border-box;
+    border: none;
+}
