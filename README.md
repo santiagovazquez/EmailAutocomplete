@@ -4,6 +4,8 @@ This component emulates a classic input which receives a list of emails:
 
 ![example image](https://github.com/santiagovazquez/EmailAutocomplete/blob/main/docs/component-example.png?raw=true)
 
+See a live demo [here](https://email-autocomplete.vercel.app).
+
 ### Basics
 
 ```
