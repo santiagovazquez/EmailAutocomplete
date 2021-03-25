@@ -2,7 +2,7 @@
 
 This component emulates a classic input which receives a list of emails:
 
-![alt text](https://github.com/santiagovazquez/EmailAutocomplete/blob/main/component-example.png?raw=true)
+![example image](https://github.com/santiagovazquez/EmailAutocomplete/blob/main/docs/component-example.png?raw=true)
 
 ### Basics
 
@@ -50,3 +50,5 @@ function SomeComponent() {
 - Ability to navigate with the keyboard thought the options of the dropdown 
 - Rework inner components for more general purpose
 - Integrate [Storybook](https://storybook.js.org/) so people can play around with the component
+- Highlight search text on dropdown options
+- Better feedback on duplicate entries
